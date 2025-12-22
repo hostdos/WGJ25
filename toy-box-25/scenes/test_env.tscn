@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://b67pr70obrbj6"]
+[gd_scene load_steps=4 format=4 uid="uid://b67pr70obrbj6"]
 
 [ext_resource type="TileSet" uid="uid://bn605yer4cb81" path="res://resources/background_tiles.tres" id="1_yl55h"]
 [ext_resource type="PackedScene" uid="uid://dvxf7d48sorna" path="res://scenes/base_chicken.tscn" id="2_kyn1l"]
+[ext_resource type="PackedScene" uid="uid://ds6fi3awl6dqd" path="res://scenes/ChickenCoop.tscn" id="3_po6i2"]
 
 [node name="TestEnv" type="Node2D"]
 
@@ -14,7 +15,10 @@ tile_set = ExtResource("1_yl55h")
 position = Vector2(88, 72)
 
 [node name="BaseChicken2" parent="." instance=ExtResource("2_kyn1l")]
-position = Vector2(88, 72)
+position = Vector2(80, 112)
 
 [node name="BaseChicken3" parent="." instance=ExtResource("2_kyn1l")]
-position = Vector2(88, 72)
+position = Vector2(120, 96)
+
+[node name="ChickenCoop" parent="." instance=ExtResource("3_po6i2")]
+position = Vector2(304, 64)

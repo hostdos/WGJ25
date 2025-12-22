@@ -1,3 +1,4 @@
+class_name Chicken
 extends CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
@@ -12,8 +13,11 @@ func _process(delta: float) -> void:
 	pass
 
 func start_panic():
-	find_child("StateMachine").change_state("Panic")
+	%StateMachine.change_state("Panic")
 
 func _on_mouse_entered() -> void:
 	print("trying to start panic")
 	start_panic()
+
+func launch():
+	%StateMachine.change_state("Launch")

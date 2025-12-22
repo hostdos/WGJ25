@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvxf7d48sorna"]
+[gd_scene load_steps=16 format=3 uid="uid://dvxf7d48sorna"]
 
 [ext_resource type="Script" uid="uid://bac1o0ph4y4v3" path="res://scenes/chicken/base_chicken.gd" id="1_3jp5v"]
 [ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="1_b13v3"]
@@ -7,10 +7,15 @@
 [ext_resource type="Script" uid="uid://cso8bknlk7hhh" path="res://scenes/chicken/walk.gd" id="4_3jp5v"]
 [ext_resource type="Script" uid="uid://b87hmyjskt0ma" path="res://scenes/chicken/peck.gd" id="5_atylx"]
 [ext_resource type="Script" uid="uid://digtjs35ocoye" path="res://scenes/chicken/panic.gd" id="6_3s882"]
+[ext_resource type="Script" uid="uid://dpqge0o5sgbca" path="res://scenes/chicken/launch.gd" id="6_atylx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85nww"]
 atlas = ExtResource("1_b13v3")
 region = Rect2(48, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atylx"]
+atlas = ExtResource("1_b13v3")
+region = Rect2(64, 224, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ex652"]
 atlas = ExtResource("1_b13v3")
@@ -36,6 +41,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atylx")
+}],
+"loop": true,
+"name": &"Launch",
 "speed": 5.0
 }, {
 "frames": [{
@@ -72,12 +85,13 @@ polygon = PackedVector2Array(1.0325544, -3.2381933, 6.0325546, -3.2381933, 9.032
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3jp5v")
-animation = &"Walking"
-frame_progress = 0.51107925
+animation = &"Launch"
+frame_progress = 0.90875983
 
 [node name="StateTimer" type="Timer" parent="."]
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
 script = ExtResource("2_85nww")
 initial_state = NodePath("Idle")
 
@@ -87,6 +101,10 @@ metadata/_custom_type_script = "uid://c48o61p5bmeik"
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("4_3jp5v")
+metadata/_custom_type_script = "uid://c48o61p5bmeik"
+
+[node name="Launch" type="Node" parent="StateMachine"]
+script = ExtResource("6_atylx")
 metadata/_custom_type_script = "uid://c48o61p5bmeik"
 
 [node name="Peck" type="Node" parent="StateMachine"]
