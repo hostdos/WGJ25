@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://67ysjchvak2q"]
+
+[ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="1_64ri3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bma8u"]
+atlas = ExtResource("1_64ri3")
+region = Rect2(48, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fct72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bma8u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ChickenUi" type="SubViewportContainer"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(25, 30)
+render_target_update_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport"]
+sprite_frames = SubResource("SpriteFrames_fct72")
+centered = false
+offset = Vector2(5, 7)
