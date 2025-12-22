@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8ulhkmm1wtyp"]
+[gd_scene load_steps=3 format=3 uid="uid://b8ulhkmm1wtyp"]
 
 [ext_resource type="Script" uid="uid://dbigbnhpq3deq" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://crfmmhl0m68in" path="res://scenes/abstracts/abstract_button.tscn" id="2_ekxnf"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_l6cm7")
@@ -27,12 +28,16 @@ alignment = 1
 layout_mode = 2
 text = "Fizzzo Domi Winter Game Jam"
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="StartButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_ekxnf")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Start"
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ExitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_ekxnf")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Exit"
+
+[node name="dsadsad" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_ekxnf")]
+layout_mode = 2
+text = "fdsfdsf"

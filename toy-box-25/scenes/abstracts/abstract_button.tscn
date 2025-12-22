@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crfmmhl0m68in"]
+
+[ext_resource type="Script" uid="uid://euags5mbirph" path="res://scenes/abstracts/abstract_button.gd" id="1_6mkyd"]
+
+[node name="AbstractButton" type="Button"]
+script = ExtResource("1_6mkyd")
