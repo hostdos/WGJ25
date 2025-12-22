@@ -1,8 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhych1t000vfl"]
+[gd_scene load_steps=9 format=3 uid="uid://bhych1t000vfl"]
 
 [ext_resource type="Script" uid="uid://bstwhfpyscf0u" path="res://scenes/ui/idle_upgrade.gd" id="1_s6dng"]
 [ext_resource type="PackedScene" uid="uid://crfmmhl0m68in" path="res://scenes/abstracts/abstract_button.tscn" id="1_v7y6t"]
-[ext_resource type="PackedScene" uid="uid://67ysjchvak2q" path="res://scenes/ui/chicken_ui.tscn" id="2_s6dng"]
+[ext_resource type="PackedScene" uid="uid://67ysjchvak2q" path="res://scenes/ui/image_in_ui.tscn" id="2_s6dng"]
+[ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="4_4aqp3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aqp3"]
+atlas = ExtResource("4_4aqp3")
+region = Rect2(0, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smbas"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aqp3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bma8u"]
+atlas = ExtResource("4_4aqp3")
+region = Rect2(48, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bmyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bma8u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="IdleUpgrade" type="HBoxContainer"]
 script = ExtResource("1_s6dng")
@@ -18,16 +49,39 @@ size_flags_horizontal = 3
 max_value = 1.0
 show_percentage = false
 
+[node name="LevelLabel" type="Label" parent="ProgressBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 26.0
+offset_top = 4.0
+offset_right = 84.0
+offset_bottom = 27.0
+
+[node name="ImageInUi" parent="ProgressBar" instance=ExtResource("2_s6dng")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 41.0
+offset_bottom = 46.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ProgressBar/ImageInUi"]
+sprite_frames = SubResource("SpriteFrames_smbas")
+
 [node name="UpgradeButton" parent="." instance=ExtResource("1_v7y6t")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "15     "
 
-[node name="ChickenUi" parent="UpgradeButton" instance=ExtResource("2_s6dng")]
+[node name="ImageInUi2" parent="UpgradeButton" instance=ExtResource("2_s6dng")]
 layout_direction = 3
 layout_mode = 0
 offset_right = 25.0
 offset_bottom = 30.0
+
+[node name="Chicken" type="AnimatedSprite2D" parent="UpgradeButton/ImageInUi2"]
+sprite_frames = SubResource("SpriteFrames_1bmyd")
+centered = false
+offset = Vector2(5, 7)
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true

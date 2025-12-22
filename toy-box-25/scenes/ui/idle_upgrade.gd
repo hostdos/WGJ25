@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-@export var chickens_needed: int
+var chickens_needed: int = 10
 
 var idle_upgrade_level: int = 0
 
@@ -9,6 +9,7 @@ func _ready():
 	GameManager.amount_chickens_changed.connect(_update_ui)
 	%UpgradeButton.pressed.connect(_on_upgrade_button_clicked)
 	%Timer.timeout.connect(_on_timer_timeout)
+	_update_chickens_needed()
 	
 func _process(delta):
 	if %Timer.time_left > 0:
@@ -24,10 +25,15 @@ func _on_upgrade_button_clicked():
 		_on_idle_upgrade_level_changed()
 
 func _on_idle_upgrade_level_changed():
-	%Timer.wait_time = 9.0
+	%Timer.wait_time = 5
 	if %Timer.is_stopped():
 		%Timer.start()
-
+	_update_chickens_needed()
+	%LevelLabel.text = str(idle_upgrade_level)
 
 func _on_timer_timeout():
 	GameManager.amount_chickens = GameManager.amount_chickens + idle_upgrade_level
+
+func _update_chickens_needed():
+	chickens_needed = 10 + idle_upgrade_level * 5
+	%UpgradeButton.text = str(chickens_needed) + "     "

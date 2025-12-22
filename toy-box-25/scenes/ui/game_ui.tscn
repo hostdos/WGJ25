@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpdralphsr6of"]
+[gd_scene load_steps=8 format=3 uid="uid://bpdralphsr6of"]
 
 [ext_resource type="Script" uid="uid://bqt7jb00m8ww0" path="res://scenes/ui/game_ui.gd" id="1_yubou"]
-[ext_resource type="PackedScene" uid="uid://67ysjchvak2q" path="res://scenes/ui/chicken_ui.tscn" id="2_bma8u"]
+[ext_resource type="PackedScene" uid="uid://67ysjchvak2q" path="res://scenes/ui/image_in_ui.tscn" id="2_bma8u"]
+[ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="2_xjfbv"]
 [ext_resource type="PackedScene" uid="uid://crfmmhl0m68in" path="res://scenes/abstracts/abstract_button.tscn" id="3_bma8u"]
 [ext_resource type="PackedScene" uid="uid://bhych1t000vfl" path="res://scenes/ui/idle_upgrade.tscn" id="4_fct72"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bma8u"]
+atlas = ExtResource("2_xjfbv")
+region = Rect2(48, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ru5ln"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bma8u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="GameUi" type="Control"]
 custom_minimum_size = Vector2(240, 360)
@@ -27,8 +43,13 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ChickenUi" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_bma8u")]
+[node name="ImageInUi" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_bma8u")]
 layout_mode = 2
+
+[node name="Chicken" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/ImageInUi"]
+sprite_frames = SubResource("SpriteFrames_ru5ln")
+centered = false
+offset = Vector2(5, 7)
 
 [node name="AmountChickens" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -43,7 +64,6 @@ text = "Chicken"
 
 [node name="IdleUpgrade" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_fct72")]
 layout_mode = 2
-chickens_needed = 15
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
