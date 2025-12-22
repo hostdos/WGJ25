@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgnxuu42knmoq"]
 
-[ext_resource type="Script" uid="uid://dr0nit3nfnpso" path="res://scenes/sfx_music_player.gd" id="1_dd6gm"]
+[ext_resource type="Script" uid="uid://dr0nit3nfnpso" path="res://scenes/music/sfx_music_player.gd" id="1_dd6gm"]
 
 [node name="SfxMusicPlayer" type="AudioStreamPlayer"]
 bus = &"Sfx"

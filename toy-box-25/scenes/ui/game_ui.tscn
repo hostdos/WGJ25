@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpdralphsr6of"]
+
+[ext_resource type="Script" uid="uid://bqt7jb00m8ww0" path="res://scenes/ui/game_ui.gd" id="1_yubou"]
+[ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="2_xjfbv"]
+[ext_resource type="PackedScene" uid="uid://crfmmhl0m68in" path="res://scenes/abstracts/abstract_button.tscn" id="3_bma8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bma8u"]
+atlas = ExtResource("2_xjfbv")
+region = Rect2(48, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fct72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bma8u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GameUi" type="Control"]
+custom_minimum_size = Vector2(240, 360)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_yubou")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(240, 360)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 101.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(240, 30)
+render_target_update_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/SubViewportContainer/SubViewport"]
+sprite_frames = SubResource("SpriteFrames_fct72")
+centered = false
+offset = Vector2(5, 7)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SubViewportContainer/SubViewport"]
+offset_left = 30.0
+offset_top = 3.5
+offset_right = 70.0
+offset_bottom = 26.5
+text = "0"
+
+[node name="AbstractButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_bma8u")]
+layout_mode = 2
+text = "Chicken"

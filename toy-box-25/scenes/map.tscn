@@ -1,3 +1,20 @@
-[gd_scene load_steps=0 format=3 uid="uid://bm5b6sp1elguy"]
+[gd_scene load_steps=2 format=3 uid="uid://bm5b6sp1elguy"]
+
+[ext_resource type="PackedScene" uid="uid://bpdralphsr6of" path="res://scenes/ui/game_ui.tscn" id="1_4xfga"]
 
 [node name="Map" type="Node"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 360)
+layout_mode = 2
+
+[node name="GameUi" parent="HBoxContainer" instance=ExtResource("1_4xfga")]
+layout_mode = 2

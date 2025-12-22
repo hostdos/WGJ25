@@ -17,15 +17,21 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-BackgroundMusicPlayer="*res://scenes/background_music_player.tscn"
-SfxMusicPlayer="*res://scenes/sfx_music_player.tscn"
+BackgroundMusicPlayer="*res://scenes/music/background_music_player.tscn"
+SfxMusicPlayer="*res://scenes/music/sfx_music_player.tscn"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/always_on_top=true
 window/size/window_width_override=1280
 window/size/window_height_override=720
+window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom="uid://b5yqrsfixvuv1"
 
 [rendering]
 

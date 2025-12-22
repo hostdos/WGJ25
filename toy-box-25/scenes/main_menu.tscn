@@ -37,7 +37,3 @@ text = "Start"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Exit"
-
-[node name="dsadsad" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_ekxnf")]
-layout_mode = 2
-text = "fdsfdsf"

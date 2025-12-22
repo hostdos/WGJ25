@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ch0i42ykafibr"]
 
-[ext_resource type="Script" uid="uid://c1o88fs8x81pc" path="res://scenes/background_music_player.gd" id="1_0yxyo"]
+[ext_resource type="Script" uid="uid://c1o88fs8x81pc" path="res://scenes/music/background_music_player.gd" id="1_0yxyo"]
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer"]
 bus = &"Music"
