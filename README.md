@@ -1,2 +1,2 @@
 # WGJ25
-Fizzo Domi Winter Game Jam
+Fizzzo Domi Winter Game Jam
