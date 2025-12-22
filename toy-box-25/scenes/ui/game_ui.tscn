@@ -54,11 +54,13 @@ sprite_frames = SubResource("SpriteFrames_fct72")
 centered = false
 offset = Vector2(5, 7)
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="AmountChickens" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
 [node name="AddChickenButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_bma8u")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Chicken"
