@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://51dyqt4elg2h"
+path="res://.godot/imported/04 Space.mp3-9ac8b1fd9643e9f603d9c42c8ee51f29.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_music/picotunes1/04 Space.mp3"
+dest_files=["res://.godot/imported/04 Space.mp3-9ac8b1fd9643e9f603d9c42c8ee51f29.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

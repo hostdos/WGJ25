@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1bosyns6euf1"
+path="res://.godot/imported/07 Flight of Icarus.mp3-ebd999a2466664fb7c428678595cac09.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_music/picotunes2/07 Flight of Icarus.mp3"
+dest_files=["res://.godot/imported/07 Flight of Icarus.mp3-ebd999a2466664fb7c428678595cac09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

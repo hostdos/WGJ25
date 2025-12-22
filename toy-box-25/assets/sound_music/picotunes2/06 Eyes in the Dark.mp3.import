@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b334ihgmg347g"
+path="res://.godot/imported/06 Eyes in the Dark.mp3-67b4946bf1cc9546f8c5fa3b300f0ce9.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_music/picotunes2/06 Eyes in the Dark.mp3"
+dest_files=["res://.godot/imported/06 Eyes in the Dark.mp3-67b4946bf1cc9546f8c5fa3b300f0ce9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

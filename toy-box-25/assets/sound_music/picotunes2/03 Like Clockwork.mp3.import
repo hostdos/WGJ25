@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q1wsfyef2bi"
+path="res://.godot/imported/03 Like Clockwork.mp3-81da70cb9e6d10244a4291605b3cb351.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_music/picotunes2/03 Like Clockwork.mp3"
+dest_files=["res://.godot/imported/03 Like Clockwork.mp3-81da70cb9e6d10244a4291605b3cb351.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
