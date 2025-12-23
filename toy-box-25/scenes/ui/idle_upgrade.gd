@@ -21,13 +21,13 @@ func _process(_delta):
 		if %Timer.time_left > 0:
 			%ProgressBar.value = 1.0 - (%Timer.time_left / %Timer.wait_time)
 	
-func _update_ui(amount_chickens: int):
-	%UpgradeButton.disabled = amount_chickens < _get_price()
+func _update_ui(_new_chickens: int):
+	%UpgradeButton.disabled = GameManager.amount_chickens < _get_price()
 
 func _on_upgrade_button_clicked():
 	if GameManager.amount_chickens >= _get_price():
 		GameManager.amount_chickens = GameManager.amount_chickens - _get_price()
-		idle_upgrade_level = idle_upgrade_level + 1
+		idle_upgrade_level += 1
 		_on_idle_upgrade_level_changed()
 
 func _on_idle_upgrade_level_changed():
@@ -39,7 +39,7 @@ func _on_idle_upgrade_level_changed():
 	%LevelLabel.text = str(idle_upgrade_level)
 
 func _on_timer_timeout():
-	GameManager.amount_chickens = GameManager.amount_chickens + idle_upgrade_level
+	GameManager.amount_chickens += idle_upgrade_level
 
 func _update_chickens_needed():
 	%UpgradeButton.text = str(_get_price()) + "     "
