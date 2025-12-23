@@ -110,30 +110,3 @@ sprite_upgrade = ExtResource("9_fftnl")
 sprite_spending_currency = ExtResource("10_bxde6")
 base_price = 15
 base_interval = 10
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Upgrade1Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_bma8u")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "1"
-
-[node name="Upgrade10Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_bma8u")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "10"
-
-[node name="Upgrade25Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_bma8u")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "25"
-
-[node name="UpgradeMaxButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_bma8u")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "MAX"
