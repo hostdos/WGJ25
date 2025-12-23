@@ -16,7 +16,7 @@ func enter():
 	print(%PanicTimer.is_stopped())
 	if %PanicTimer.is_stopped():
 		print("really panicking now")
-		animation.play("Panic") # Or "idle" if you have it
+		%ChickenAnimation.play("Panic") # Or "idle" if you have it
 		move_dir = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
 		walk_timer = randf_range(panic_duration.x, panic_duration.y)
 		%PanicTimer.start()
@@ -33,7 +33,7 @@ func update(delta: float):
 	
 	#Flip Sprite accordingly
 	if chicken.velocity.x != 0:
-		animation.flip_h = chicken.velocity.x >0
+		%ChickenAnimation.flip_h = chicken.velocity.x >0
 		
 	walk_timer -= delta
 	if walk_timer <= 0:

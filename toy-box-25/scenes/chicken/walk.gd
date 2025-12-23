@@ -7,7 +7,7 @@ var walk_timer: float = 0.0
 var move_dir: Vector2
 
 func enter():
-	animation.play("Walking")
+	%ChickenAnimation.play("Walking")
 	#get rand direction
 	move_dir = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
 	walk_timer = randf_range(walk_duration_range.x, walk_duration_range.y)
@@ -18,7 +18,7 @@ func update(delta: float):
 	
 	#Flip Sprite accordingly
 	if chicken.velocity.x != 0:
-		animation.flip_h = chicken.velocity.x >0
+		%ChickenAnimation.flip_h = chicken.velocity.x >0
 		
 	walk_timer -= delta
 	if walk_timer <= 0:

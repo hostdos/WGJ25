@@ -19,5 +19,8 @@ func _on_mouse_entered() -> void:
 	print("trying to start panic")
 	start_panic()
 
+func panic_him():
+	%StateMachine.change_state("Panic")
+
 func launch():
 	%StateMachine.change_state("Launch")
