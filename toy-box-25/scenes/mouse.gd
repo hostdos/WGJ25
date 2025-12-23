@@ -1,6 +1,6 @@
 extends Node2D
 
-var move_speed: float = 60.0
+var move_speed: float = 70.0
 
 func _process(delta):
 	var closest_chicken: Chicken = get_closest_uncooked_chicken()
