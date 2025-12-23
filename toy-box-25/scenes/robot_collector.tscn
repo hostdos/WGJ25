@@ -1,3 +1,10 @@
-[gd_scene load_steps=0 format=3 uid="uid://bmm0psj5umx5d"]
+[gd_scene load_steps=3 format=3 uid="uid://bmm0psj5umx5d"]
+
+[ext_resource type="Script" uid="uid://dqy051ui7j8un" path="res://scenes/robot_collector.gd" id="1_p65v5"]
+[ext_resource type="Texture2D" uid="uid://cd1vs8p277grj" path="res://assets/robot_texture.tres" id="1_uiqea"]
 
 [node name="RobotCollector" type="Node2D"]
+script = ExtResource("1_p65v5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uiqea")

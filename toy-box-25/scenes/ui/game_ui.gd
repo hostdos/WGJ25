@@ -9,6 +9,7 @@ func _ready():
 	GameManager.amount_chickens_changed.connect(_update_chicken_amount)
 	%TimerIdleUpgrade.on_progress_bar_full.connect(_add_chicken)
 	%MouseIdleUpgrade.on_upgraded.connect(_add_mouse)
+	%RobotIdleUpgrade.on_progress_bar_full.connect(_send_robot)
 	%AddChickenButton.pressed.connect(_add_chicken)
 	_init_upgrade_size_buttons()
 
