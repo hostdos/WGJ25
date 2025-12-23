@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bn605yer4cb81" path="res://resources/background_tiles.tres" id="1_yl55h"]
 [ext_resource type="PackedScene" uid="uid://dvxf7d48sorna" path="res://scenes/base_chicken.tscn" id="2_kyn1l"]
 [ext_resource type="PackedScene" uid="uid://ds6fi3awl6dqd" path="res://scenes/ChickenCoop.tscn" id="3_po6i2"]
-[ext_resource type="PackedScene" path="res://scenes/robot_collect_point.tscn" id="4_wpndf"]
+[ext_resource type="PackedScene" uid="uid://fea272adtggh" path="res://scenes/robot_collect_point.tscn" id="4_wpndf"]
 [ext_resource type="Script" uid="uid://utmu4i7d8ksy" path="res://scenes/mouse_spawner.gd" id="5_lfx8k"]
 
 [node name="TestEnv" type="Node2D"]

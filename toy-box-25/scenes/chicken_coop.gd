@@ -4,13 +4,16 @@ class_name ChickenSpawner
 @export var spawn_state: ChickenState
 @export var chicken_scene: PackedScene
 @export var launch_velocity: float = 50.0
+@export var wait_time: float = 5.0
+@export var wait_time_decreaser: float = 0.95
 var spawn_queue: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.amount_chickens_changed.connect(queue_chicken)
-	GameManager.global_timer.timeout.connect(queue_check)
-	pass # Replace with function body.
+	%SpawnTimer.wait_time = wait_time
+	%SpawnTimer.timeout.connect(queue_check)
+	%SpawnTimer.start(wait_time)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,7 +45,12 @@ func spawn_chicken(amount: int = 1):
 		launch_him(instance)
 		# add chicken as child of main scene instead of spawner
 		get_parent().call_deferred("add_child",instance)
-
+		if pow(wait_time_decreaser, spawn_queue) < wait_time:
+			%SpawnTimer.wait_time = pow(wait_time_decreaser, spawn_queue)
+		else:
+			%SpawnTimer.wait_time = wait_time
+	print(%SpawnTimer.wait_time)
+	
 func get_random_position():
 	#Random XY inside area2d
 	var capsule : Rect2 = %SpawnCollider.shape.get_rect()

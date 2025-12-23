@@ -3,7 +3,8 @@ extends HBoxContainer
 @export var sprite_upgrade: Texture
 @export var sprite_spending_currency: Texture
 @export var base_price: int = 10
-@export var base_interval: int = 5
+@export var base_interval: float = 5.0
+@export var base_interval_upgrade_strength: float = 1.0
 
 signal on_upgraded
 signal on_progress_bar_full
@@ -32,6 +33,7 @@ func _on_upgrade_button_clicked():
 		GameManager.amount_poulet = GameManager.amount_poulet - _get_price()
 		idle_upgrade_level += 1
 		_on_idle_upgrade_level_changed()
+	base_interval = base_interval_upgrade_strength * base_interval
 
 func _on_idle_upgrade_level_changed():
 	on_upgraded.emit()
@@ -49,7 +51,10 @@ func _update_poulets_needed():
 	%UpgradeButton.text = str(_get_price()) + "     "
 
 func _send_robot():
-	pass
+	GameManager.amount_robot += 1
 
 func _get_price():
 	return base_price + idle_upgrade_level * (base_price / 2)
+
+func _upgrade_timer():
+	base_interval = base_interval * base_interval_upgrade_strength

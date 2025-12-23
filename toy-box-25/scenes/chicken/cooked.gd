@@ -2,7 +2,6 @@ class_name CoockedState
 extends ChickenState
 
 func enter():
-	print("he cooked")
 	chicken.velocity = Vector2.ZERO
 	%ChickenAnimation.play("Cooked") # Or "idle" if you have it
 	SfxMusicPlayer.play_sound(SfxMusicPlayer.SoundType.CHICKEN_COOKED, SfxMusicPlayer.RandomizeStrength.EXTREME)

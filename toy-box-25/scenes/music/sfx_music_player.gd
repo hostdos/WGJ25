@@ -47,5 +47,4 @@ func play_sound(sound_type: SoundType, randomize: RandomizeStrength = RandomizeS
 				pitch_scale = randf_range((min_pitch * min_pitch), (max_pitch * max_pitch))
 			RandomizeStrength.EXTREME:
 				pitch_scale = randf_range((min_pitch * min_pitch * min_pitch), (max_pitch * max_pitch * max_pitch))
-		print(volume_db)
 		play()

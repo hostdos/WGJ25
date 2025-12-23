@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://fea272adtggh"]
+[gd_scene load_steps=3 format=3 uid="uid://fea272adtggh"]
 
 [ext_resource type="Script" uid="uid://bx803j58dkfbd" path="res://scenes/robot_collect_point.gd" id="1_whp2x"]
+[ext_resource type="PackedScene" uid="uid://bmm0psj5umx5d" path="res://scenes/robot_collector.tscn" id="2_ls07v"]
 
 [node name="RobotCollectPoint" type="Node2D"]
 script = ExtResource("1_whp2x")
+robot = ExtResource("2_ls07v")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="CollectPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(8, 8)
 
 [node name="RobotTimer" type="Timer" parent="."]
