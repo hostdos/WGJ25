@@ -6,6 +6,8 @@ const color_unselected: Color = Color(0.13, 0.13, 0.13, 1.0)
 
 func _ready():
 	GameManager.amount_poulet_changed.connect(_update_poulet_amount)
+	%TimerIdleUpgrade.on_progress_bar_full.connect(_add_chicken)
+	%MouseIdleUpgrade.on_upgraded.connect(_add_mouse)
 	%AddChickenButton.pressed.connect(_add_chicken)
 	_init_upgrade_size_buttons()
 
@@ -13,7 +15,10 @@ func _update_poulet_amount(_new_chickens: int):
 	%AmountChickens.text = str(GameManager.amount_poulet)
 
 func _add_chicken():
-	GameManager.amount_chickens = GameManager.amount_chickens + 1
+	GameManager.amount_chickens += 1
+
+func _add_mouse():
+	GameManager.amount_mice += 1
 
 func _init_upgrade_size_buttons():
 	%Upgrade1Button.pressed.connect(_on_upgrade_size_button_pressed.bind(1))

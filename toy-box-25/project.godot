@@ -34,6 +34,7 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://dyqjeqd4cu3u5"
+mouse_cursor/custom_image_hotspot=Vector2(2, 2)
 
 [gui]
 

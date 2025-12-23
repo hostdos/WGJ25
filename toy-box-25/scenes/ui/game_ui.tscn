@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://crfmmhl0m68in" path="res://scenes/abstracts/abstract_button.tscn" id="3_bma8u"]
 [ext_resource type="PackedScene" uid="uid://bhych1t000vfl" path="res://scenes/ui/idle_upgrade.tscn" id="4_fct72"]
 [ext_resource type="Texture2D" uid="uid://6w3uxlgfgjyg" path="res://assets/clock.png" id="6_qrkc0"]
-[ext_resource type="Texture2D" uid="uid://c8atff4breou4" path="res://assets/chicken.png" id="6_v1bdg"]
 [ext_resource type="Texture2D" uid="uid://dyqjeqd4cu3u5" path="res://assets/mouse.png" id="8_yvtb5"]
+[ext_resource type="Texture2D" uid="uid://d1ryo6tu6kpbh" path="res://assets/poulet.png" id="9_k7elv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvtb5"]
 atlas = ExtResource("2_xjfbv")
@@ -73,15 +73,18 @@ size_flags_horizontal = 3
 text = "Chicken"
 
 [node name="TimerIdleUpgrade" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_fct72")]
+unique_name_in_owner = true
 layout_mode = 2
 sprite_upgrade = ExtResource("6_qrkc0")
-sprite_spending_currency = ExtResource("6_v1bdg")
+sprite_spending_currency = ExtResource("9_k7elv")
+base_price = 5
 
 [node name="MouseIdleUpgrade" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_fct72")]
+unique_name_in_owner = true
 layout_mode = 2
 sprite_upgrade = ExtResource("8_yvtb5")
-sprite_spending_currency = ExtResource("6_v1bdg")
-base_price = 50
+sprite_spending_currency = ExtResource("9_k7elv")
+base_price = 12
 base_interval = 0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
