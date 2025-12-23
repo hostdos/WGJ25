@@ -14,6 +14,7 @@ func _ready():
 func enter():
 	if %PanicTimer.is_stopped():
 		%ChickenAnimation.play("Panic") # Or "idle" if you have it
+		SfxMusicPlayer.play_sound(SfxMusicPlayer.SoundType.CHICKEN_PANIC)
 		move_dir = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
 		walk_timer = randf_range(panic_duration.x, panic_duration.y)
 		%PanicTimer.start()
