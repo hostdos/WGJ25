@@ -100,10 +100,11 @@ unique_name_in_owner = true
 layout_mode = 2
 sprite_upgrade = ExtResource("8_yvtb5")
 sprite_spending_currency = ExtResource("9_k7elv")
-base_price = 12
+base_price = 0
 base_interval = 0
 
 [node name="RobotIdleUpgrade" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_fct72")]
+unique_name_in_owner = true
 layout_mode = 2
 sprite_upgrade = ExtResource("9_fftnl")
 sprite_spending_currency = ExtResource("10_bxde6")
