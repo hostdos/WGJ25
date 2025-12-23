@@ -10,7 +10,7 @@ func _ready() -> void:
 # Assign the chicken reference to all children states
 	for child in get_children():
 		if child is ChickenState:
-			child.chicken = owner
+			child.chicken = get_parent()
 
 	
 	# Start the first state
