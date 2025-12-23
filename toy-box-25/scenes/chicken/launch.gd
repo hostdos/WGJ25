@@ -8,6 +8,7 @@ var velocity_vector: Vector2 = Vector2.ZERO
 func enter():
 	%ChickenAnimationPlayer.play("Spawn")
 	%ChickenAnimation.play("Launch")
+	SfxMusicPlayer.play_sound(SfxMusicPlayer.SoundType.CHICKEN_SPAWN)
 
 func update(delta: float):
 	# 1. Apply Velocity

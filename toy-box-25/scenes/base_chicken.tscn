@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dwsww3lftk2tp" path="res://scenes/chicken/state_machine.gd" id="2_85nww"]
 [ext_resource type="Script" uid="uid://l6tc8adsleir" path="res://scenes/chicken/idle.gd" id="3_8cbhj"]
 [ext_resource type="Script" uid="uid://cso8bknlk7hhh" path="res://scenes/chicken/walk.gd" id="4_3jp5v"]
-[ext_resource type="Script" path="res://scenes/chicken/cooked.gd" id="5_3s882"]
+[ext_resource type="Script" uid="uid://ov74lvqyqjuc" path="res://scenes/chicken/cooked.gd" id="5_3s882"]
 [ext_resource type="Script" uid="uid://b87hmyjskt0ma" path="res://scenes/chicken/peck.gd" id="5_atylx"]
 [ext_resource type="Script" uid="uid://digtjs35ocoye" path="res://scenes/chicken/panic.gd" id="6_3s882"]
 [ext_resource type="Script" uid="uid://dpqge0o5sgbca" path="res://scenes/chicken/launch.gd" id="6_atylx"]

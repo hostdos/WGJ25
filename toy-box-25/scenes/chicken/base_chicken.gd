@@ -28,6 +28,7 @@ func _on_mouse_entered() -> void:
 func cook_him():
 	if %StateMachine.current_state == %Cooked:
 		GameManager.amount_poulet += 1
+		SfxMusicPlayer.play_sound(SfxMusicPlayer.SoundType.POULET_PICKUP)
 		self.queue_free()
 	if %StateMachine.current_state != %Cooked:
 		%StateMachine.change_state("Cooked")

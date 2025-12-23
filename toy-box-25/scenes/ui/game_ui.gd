@@ -19,6 +19,9 @@ func _update_chicken_amount(_new_chickens: int):
 func _update_poulet_amount(_new_poulets: int):
 	%AmountPoulets.text = str(GameManager.amount_poulet)
 
+func _send_robot():
+	pass
+
 func _add_chicken():
 	GameManager.amount_chickens += 1
 
