@@ -35,7 +35,7 @@ func get_closest_cooked_chicken() -> Chicken:
 		if not chicken is Chicken:
 			continue
 		
-		if chicken.get_chicken_state() is not CoockedState or chicken.is_in_group("pickedup"):
+		if not chicken.get_chicken_state() is CoockedState or chicken.is_in_group("pickedup"):
 			continue
 		
 		var distance = start_position.distance_to(chicken.global_position)
