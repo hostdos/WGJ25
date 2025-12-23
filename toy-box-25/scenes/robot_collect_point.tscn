@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://fea272adtggh"]
+
+[ext_resource type="Script" uid="uid://bx803j58dkfbd" path="res://scenes/robot_collect_point.gd" id="1_whp2x"]
+
+[node name="RobotCollectPoint" type="Node2D"]
+script = ExtResource("1_whp2x")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(8, 8)
+
+[node name="RobotTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
