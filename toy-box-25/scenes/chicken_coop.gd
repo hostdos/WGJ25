@@ -22,7 +22,8 @@ func queue_check():
 		spawn_chicken(1)
 
 func queue_chicken(amount: int):
-	spawn_queue += amount
+	if amount >= 0:
+		spawn_queue += amount
 
 func spawn_chicken(amount: int = 1):
 	#check if chicken is upgraded?
@@ -30,7 +31,8 @@ func spawn_chicken(amount: int = 1):
 		var instance = chicken_scene.instantiate()
 		instance.scale = Vector2(0.1,0.1)
 		spawn_queue -= amount
-		GameManager.amount_chickens -= amount
+		if GameManager.amount_chickens > 0:
+			GameManager.amount_chickens -= amount
 		
 		# set pos
 		instance.global_position = get_random_position()

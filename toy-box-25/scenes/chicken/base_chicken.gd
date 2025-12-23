@@ -23,14 +23,14 @@ func start_panic():
 
 func _on_mouse_entered() -> void:
 	if %StateMachine.current_state != %Cooked:
-		print("trying to start panic")
 		start_panic()
 
 func cook_him():
+	if %StateMachine.current_state == %Cooked:
+		GameManager.amount_poulet += 1
+		self.queue_free()
 	if %StateMachine.current_state != %Cooked:
 		%StateMachine.change_state("Cooked")
-	if %StateMachine.current_state == %Cooked:
-		print("consume chicken")
 
 func panic_him():
 	%StateMachine.change_state("Panic")

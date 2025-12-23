@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dvxf7d48sorna"]
+[gd_scene load_steps=25 format=3 uid="uid://dvxf7d48sorna"]
 
 [ext_resource type="Script" uid="uid://bac1o0ph4y4v3" path="res://scenes/chicken/base_chicken.gd" id="1_3jp5v"]
 [ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="1_b13v3"]
@@ -222,6 +222,14 @@ _data = {
 atlas = ExtResource("1_b13v3")
 region = Rect2(160, 96, 16, 16)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3s882"]
+lifetime_randomness = 0.15
+particle_flag_disable_z = true
+initial_velocity_min = 10.0
+initial_velocity_max = 61.76
+gravity = Vector3(0, 98, 0)
+turbulence_enabled = true
+
 [node name="BaseChicken" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("1_3jp5v")
@@ -285,5 +293,13 @@ libraries = {
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 use_parent_material = true
 emitting = false
+amount = 4
+amount_ratio = 0.5
 texture = SubResource("AtlasTexture_l1jkw")
 one_shot = true
+explosiveness = 0.2
+randomness = 0.2
+collision_base_size = 0.1
+visibility_rect = Rect2(-100, -100, 50, 50)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_3s882")

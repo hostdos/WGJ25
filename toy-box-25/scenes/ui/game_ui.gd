@@ -5,12 +5,12 @@ const color_selected: Color = Color(0.4, 0.85, 0.5, 0.65)
 const color_unselected: Color = Color(0.13, 0.13, 0.13, 1.0)
 
 func _ready():
-	GameManager.amount_chickens_changed.connect(_update_chicken_amount)
+	GameManager.amount_poulet_changed.connect(_update_poulet_amount)
 	%AddChickenButton.pressed.connect(_add_chicken)
 	_init_upgrade_size_buttons()
 
-func _update_chicken_amount(_new_chickens: int):
-	%AmountChickens.text = str(GameManager.amount_chickens)
+func _update_poulet_amount(_new_chickens: int):
+	%AmountChickens.text = str(GameManager.amount_poulet)
 
 func _add_chicken():
 	GameManager.amount_chickens = GameManager.amount_chickens + 1

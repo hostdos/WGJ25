@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpdralphsr6of"]
+[gd_scene load_steps=12 format=3 uid="uid://bpdralphsr6of"]
 
 [ext_resource type="Script" uid="uid://bqt7jb00m8ww0" path="res://scenes/ui/game_ui.gd" id="1_yubou"]
 [ext_resource type="PackedScene" uid="uid://67ysjchvak2q" path="res://scenes/ui/image_in_ui.tscn" id="2_bma8u"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://c8atff4breou4" path="res://assets/chicken.png" id="6_v1bdg"]
 [ext_resource type="Texture2D" uid="uid://dyqjeqd4cu3u5" path="res://assets/mouse.png" id="8_yvtb5"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvtb5"]
+atlas = ExtResource("2_xjfbv")
+region = Rect2(96, 224, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bma8u"]
 atlas = ExtResource("2_xjfbv")
 region = Rect2(48, 224, 16, 16)
@@ -16,6 +20,9 @@ region = Rect2(48, 224, 16, 16)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ru5ln"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvtb5")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bma8u")
 }],

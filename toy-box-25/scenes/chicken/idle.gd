@@ -4,7 +4,6 @@ extends ChickenState
 var timer: float = 0.0
 
 func enter():
-	print("he idle")
 	%ChickenAnimation.play("Idle") # Or "idle" if you have it
 	%ChickenAnimation.stop() # Stop animating to stand still
 	%ChickenAnimation.frame = 1 # Stand on specific frame
