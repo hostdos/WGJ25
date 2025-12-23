@@ -250,6 +250,7 @@ shape = SubResource("RectangleShape2D_3s882")
 
 [node name="ChickenAnimation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3jp5v")
 animation = &"Cooked"
 

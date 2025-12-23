@@ -73,6 +73,7 @@ text = "0"
 layout_mode = 2
 
 [node name="Chicken" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/ImageInUi"]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ru5ln")
 centered = false
 offset = Vector2(5, 7)
@@ -109,5 +110,5 @@ unique_name_in_owner = true
 layout_mode = 2
 sprite_upgrade = ExtResource("9_fftnl")
 sprite_spending_currency = ExtResource("10_bxde6")
-base_price = 0
+base_price = 20
 base_interval_upgrade_strength = 0.9
