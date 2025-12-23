@@ -48,5 +48,8 @@ func _on_timer_timeout():
 func _update_poulets_needed():
 	%UpgradeButton.text = str(_get_price()) + "     "
 
+func _send_robot():
+	pass
+
 func _get_price():
 	return base_price + idle_upgrade_level * (base_price / 2)
