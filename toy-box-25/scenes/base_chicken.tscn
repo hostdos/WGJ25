@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvxf7d48sorna"]
+[gd_scene load_steps=19 format=3 uid="uid://dvxf7d48sorna"]
 
 [ext_resource type="Script" uid="uid://bac1o0ph4y4v3" path="res://scenes/chicken/base_chicken.gd" id="1_3jp5v"]
 [ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="1_b13v3"]
@@ -74,19 +74,143 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Animation" id="Animation_atylx"]
+resource_name = "Spawn"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [-12.566370614359172, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:collision_layer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [32768, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:collision_mask")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [32768, 1]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Walk"],
+"method": &"change_state"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3s882"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:collision_layer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:collision_mask")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpenm"]
+_data = {
+&"RESET": SubResource("Animation_3s882"),
+&"Spawn": SubResource("Animation_atylx")
+}
+
 [node name="BaseChicken" type="CharacterBody2D"]
 input_pickable = true
-motion_mode = 1
 script = ExtResource("1_3jp5v")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="ChickenCollider" type="CollisionPolygon2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(-1.0325544, 0.23819318)
 polygon = PackedVector2Array(1.0325544, -3.2381933, 6.0325546, -3.2381933, 9.032555, -0.23819315, 6.0325546, 6.761807, -1.9674456, 6.761807, -6.9674454, -2.2381933, -3.9674456, -6.238193, 1.0325544, -6.238193)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="ChickenAnimation" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_3jp5v")
-animation = &"Launch"
-frame_progress = 0.90875983
+animation = &"Panic"
 
 [node name="StateTimer" type="Timer" parent="."]
 
@@ -119,3 +243,9 @@ metadata/_custom_type_script = "uid://c48o61p5bmeik"
 unique_name_in_owner = true
 wait_time = 15.0
 one_shot = true
+
+[node name="ChickenAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_hpenm")
+}

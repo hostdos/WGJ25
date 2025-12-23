@@ -4,10 +4,10 @@ extends ChickenState
 var timer: float = 0.0
 
 func enter():
-
-	animation.play("Idle") # Or "idle" if you have it
-	animation.stop() # Stop animating to stand still
-	animation.frame = 1 # Stand on specific frame
+	print("he idle")
+	%ChickenAnimation.play("Idle") # Or "idle" if you have it
+	%ChickenAnimation.stop() # Stop animating to stand still
+	%ChickenAnimation.frame = 1 # Stand on specific frame
 	
 # Randomize how long we idle
 	timer = randf_range(idle_duration_range.x, idle_duration_range.y)

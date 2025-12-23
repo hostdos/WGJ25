@@ -1,8 +1,9 @@
 extends Node2D
 
 class_name ChickenSpawner
+@export var spawn_state: ChickenState
 @export var chicken_scene: PackedScene
-@export var launch_velocity: float = 3.0
+@export var launch_velocity: float = 50.0
 var spawn_timer: Timer
 var spawn_queue: int = 0
 
@@ -30,14 +31,17 @@ func spawn_chicken(amount: int = 1):
 	#check if chicken is upgraded?
 	for i in range(amount):
 		var instance = chicken_scene.instantiate()
+		instance.scale = Vector2(0.1,0.1)
 		spawn_queue -= amount
 		
 		# set pos
 		instance.global_position = get_random_position()
 		
 		# launch the mfer
+		instance.find_child("StateMachine").initial_state = spawn_state
+		print(instance.velocity)
 		launch_him(instance)
-		
+		print(instance.velocity)
 		# add chicken as child of main scene instead of spawner
 		get_parent().call_deferred("add_child",instance)
 
@@ -50,8 +54,8 @@ func get_random_position():
 	return %SpawnPoint.global_position + Vector2(x,y)
 	
 func launch_him(launched_chicken):
-	var sling_vector = %SlingPoint.global_position - launched_chicken.global_position	
+	var sling_vector = launched_chicken.global_position - %SlingPoint.global_position
 	
-	var launch_velocity = sling_vector * launch_velocity
+	var launch_velocity = sling_vector.normalized() * launch_velocity
 	
-	launched_chicken.call_deferred("launch", launch_velocity)
+	launched_chicken.velocity = launch_velocity

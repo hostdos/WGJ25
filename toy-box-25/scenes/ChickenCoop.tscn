@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds6fi3awl6dqd"]
+[gd_scene load_steps=6 format=3 uid="uid://ds6fi3awl6dqd"]
 
 [ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="1_gxb07"]
 [ext_resource type="Script" uid="uid://w8n1dclla315" path="res://scenes/chicken_coop.gd" id="1_q3vi8"]
 [ext_resource type="PackedScene" uid="uid://dvxf7d48sorna" path="res://scenes/base_chicken.tscn" id="2_y2hrv"]
+[ext_resource type="Script" uid="uid://dpqge0o5sgbca" path="res://scenes/chicken/launch.gd" id="4_m36ga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2hrv"]
 size = Vector2(32.75, 4)
 
-[node name="ChickenCoop" type="Node2D"]
+[node name="ChickenCoop" type="Node2D" node_paths=PackedStringArray("spawn_state")]
 script = ExtResource("1_q3vi8")
+spawn_state = NodePath("Launch")
 chicken_scene = ExtResource("2_y2hrv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,7 +20,7 @@ region_rect = Rect2(96, 16, 16, 16)
 
 [node name="SlingPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-2, 4)
+position = Vector2(0, -15.22)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -39,3 +41,7 @@ position = Vector2(0, 26)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-6, -2, -6, 8, 6, 8, 6, -2, 8, -2, 8, -3, 3, -8, -3, -8, -8, -3, -8, -2)
+
+[node name="Launch" type="Node" parent="."]
+script = ExtResource("4_m36ga")
+metadata/_custom_type_script = "uid://c48o61p5bmeik"
