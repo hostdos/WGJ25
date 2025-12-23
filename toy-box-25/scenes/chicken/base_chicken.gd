@@ -38,3 +38,6 @@ func panic_him():
 
 func launch():
 	%StateMachine.change_state("Launch")
+
+func get_chicken_state() -> ChickenState:
+	return %StateMachine.current_state

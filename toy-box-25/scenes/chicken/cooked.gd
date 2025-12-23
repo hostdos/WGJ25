@@ -1,3 +1,4 @@
+class_name CoockedState
 extends ChickenState
 
 func enter():

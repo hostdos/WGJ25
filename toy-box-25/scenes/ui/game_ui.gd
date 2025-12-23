@@ -13,9 +13,6 @@ func _ready():
 	%AddChickenButton.pressed.connect(_add_chicken)
 	_init_upgrade_size_buttons()
 	
-func _send_robot():
-	pass
-
 func _update_chicken_amount(_new_chickens: int):
 	%AmountChickens.text = str(GameManager.amount_chickens)
 

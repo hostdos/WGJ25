@@ -233,7 +233,7 @@ initial_velocity_max = 61.76
 gravity = Vector3(0, 98, 0)
 turbulence_enabled = true
 
-[node name="BaseChicken" type="CharacterBody2D"]
+[node name="BaseChicken" type="CharacterBody2D" groups=["chicken"]]
 script = ExtResource("1_3jp5v")
 
 [node name="ChickenCollider" type="CollisionShape2D" parent="."]

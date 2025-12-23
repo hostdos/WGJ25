@@ -1,3 +1,4 @@
+class_name PanicState
 extends ChickenState
 
 @export var panic_duration: Vector2 = Vector2(2.0, 4.0)
