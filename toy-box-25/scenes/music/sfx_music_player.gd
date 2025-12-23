@@ -35,7 +35,7 @@ func play_sound(sound_type: SoundType, randomize: RandomizeStrength = RandomizeS
 			volume_db -= 8.0
 			stream = load("res://assets/sound_music/sfxpack/sfxpack_52.wav")
 		SoundType.POULET_PICKUP:
-			volume_db -= 8.0
+			volume_db -= 4.0
 			stream = load("res://assets/sound_music/sfxpack/sfxpack_61.wav")
 	if stream != null:
 		match randomize:
