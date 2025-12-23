@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpdralphsr6of"]
+[gd_scene load_steps=14 format=3 uid="uid://bpdralphsr6of"]
 
 [ext_resource type="Script" uid="uid://bqt7jb00m8ww0" path="res://scenes/ui/game_ui.gd" id="1_yubou"]
 [ext_resource type="PackedScene" uid="uid://67ysjchvak2q" path="res://scenes/ui/image_in_ui.tscn" id="2_bma8u"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://6w3uxlgfgjyg" path="res://assets/clock.png" id="6_qrkc0"]
 [ext_resource type="Texture2D" uid="uid://c8atff4breou4" path="res://assets/chicken.png" id="6_v1bdg"]
 [ext_resource type="Texture2D" uid="uid://dyqjeqd4cu3u5" path="res://assets/mouse.png" id="8_yvtb5"]
+[ext_resource type="Texture2D" uid="uid://cd1vs8p277grj" path="res://assets/robot_texture.tres" id="9_fftnl"]
+[ext_resource type="Texture2D" uid="uid://lxo431snxh6d" path="res://assets/poulet_texture.tres" id="10_bxde6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvtb5"]
 atlas = ExtResource("2_xjfbv")
@@ -83,6 +85,13 @@ sprite_upgrade = ExtResource("8_yvtb5")
 sprite_spending_currency = ExtResource("6_v1bdg")
 base_price = 50
 base_interval = 0
+
+[node name="IdleUpgrade" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_fct72")]
+layout_mode = 2
+sprite_upgrade = ExtResource("9_fftnl")
+sprite_spending_currency = ExtResource("10_bxde6")
+base_price = 15
+base_interval = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
