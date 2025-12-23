@@ -4,15 +4,12 @@ class_name ChickenSpawner
 @export var spawn_state: ChickenState
 @export var chicken_scene: PackedScene
 @export var launch_velocity: float = 50.0
-var spawn_timer: Timer
 var spawn_queue: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.amount_chickens_changed.connect(queue_chicken)
-	spawn_timer = %SpawnTimer
-	spawn_timer.timeout.connect(queue_check)
-	spawn_timer.start()
+	GameManager.global_timer.timeout.connect(queue_check)
 	pass # Replace with function body.
 
 
@@ -33,15 +30,14 @@ func spawn_chicken(amount: int = 1):
 		var instance = chicken_scene.instantiate()
 		instance.scale = Vector2(0.1,0.1)
 		spawn_queue -= amount
+		GameManager.amount_chickens -= amount
 		
 		# set pos
 		instance.global_position = get_random_position()
 		
 		# launch the mfer
 		instance.find_child("StateMachine").initial_state = spawn_state
-		print(instance.velocity)
 		launch_him(instance)
-		print(instance.velocity)
 		# add chicken as child of main scene instead of spawner
 		get_parent().call_deferred("add_child",instance)
 

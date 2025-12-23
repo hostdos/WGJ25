@@ -7,3 +7,5 @@ var amount_chickens: int = 0:
 		var amount_gained = new_amount_chickens - amount_chickens
 		amount_chickens = new_amount_chickens
 		amount_chickens_changed.emit(amount_gained)
+
+@onready var global_timer: Timer = %GlobalClock

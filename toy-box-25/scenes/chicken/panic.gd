@@ -12,10 +12,7 @@ func _ready():
 	pass
 
 func enter():
-	print("maybe starting panic")
-	print(%PanicTimer.is_stopped())
 	if %PanicTimer.is_stopped():
-		print("really panicking now")
 		%ChickenAnimation.play("Panic") # Or "idle" if you have it
 		move_dir = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
 		walk_timer = randf_range(panic_duration.x, panic_duration.y)

@@ -4,3 +4,7 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_hwd4i")
+
+[node name="GlobalClock" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
