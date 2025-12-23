@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpdralphsr6of"]
+[gd_scene load_steps=11 format=3 uid="uid://bpdralphsr6of"]
 
 [ext_resource type="Script" uid="uid://bqt7jb00m8ww0" path="res://scenes/ui/game_ui.gd" id="1_yubou"]
 [ext_resource type="PackedScene" uid="uid://67ysjchvak2q" path="res://scenes/ui/image_in_ui.tscn" id="2_bma8u"]
 [ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="2_xjfbv"]
 [ext_resource type="PackedScene" uid="uid://crfmmhl0m68in" path="res://scenes/abstracts/abstract_button.tscn" id="3_bma8u"]
 [ext_resource type="PackedScene" uid="uid://bhych1t000vfl" path="res://scenes/ui/idle_upgrade.tscn" id="4_fct72"]
+[ext_resource type="Texture2D" uid="uid://6w3uxlgfgjyg" path="res://assets/clock.png" id="6_qrkc0"]
+[ext_resource type="Texture2D" uid="uid://c8atff4breou4" path="res://assets/chicken.png" id="6_v1bdg"]
+[ext_resource type="Texture2D" uid="uid://dyqjeqd4cu3u5" path="res://assets/mouse.png" id="8_yvtb5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bma8u"]
 atlas = ExtResource("2_xjfbv")
@@ -62,8 +65,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Chicken"
 
-[node name="IdleUpgrade" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_fct72")]
+[node name="TimerIdleUpgrade" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_fct72")]
 layout_mode = 2
+sprite_upgrade = ExtResource("6_qrkc0")
+sprite_spending_currency = ExtResource("6_v1bdg")
+
+[node name="MouseIdleUpgrade" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_fct72")]
+layout_mode = 2
+sprite_upgrade = ExtResource("8_yvtb5")
+sprite_spending_currency = ExtResource("6_v1bdg")
+base_price = 50
+base_interval = 0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
