@@ -6,10 +6,13 @@ var move_speed: float = 70.0
 var target_chicken: Chicken
 
 func _process(delta):
-
-	if target_chicken == null:
-		target_chicken = get_closest_cooked_chicken()
 	var target_position: Vector2 = CollectionPoint
+	if target_chicken == null and has_collected == false:
+		target_chicken = get_closest_cooked_chicken()
+	
+	if target_chicken != null:
+		target_position = target_chicken.global_position
+	
 	if has_collected:
 		target_position = CollectionPoint
 	
