@@ -6,8 +6,8 @@ func _ready() -> void:
 	#make chicken mouse interactable
 	input_pickable = true
 	# 2. Connect the mouse hover signal
-	mouse_entered.connect(_on_mouse_entered)
-	input_event.connect(_on_input_event)
+	%ClickArea.mouse_entered.connect(_on_mouse_entered)
+	%ClickArea.input_event.connect(_on_input_event)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

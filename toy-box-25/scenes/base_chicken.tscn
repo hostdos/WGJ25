@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dvxf7d48sorna"]
+[gd_scene load_steps=26 format=3 uid="uid://dvxf7d48sorna"]
 
 [ext_resource type="Script" uid="uid://bac1o0ph4y4v3" path="res://scenes/chicken/base_chicken.gd" id="1_3jp5v"]
 [ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="1_b13v3"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s882"]
 radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s882"]
+size = Vector2(16, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3s882"]
 atlas = ExtResource("1_b13v3")
@@ -231,13 +234,19 @@ gravity = Vector3(0, 98, 0)
 turbulence_enabled = true
 
 [node name="BaseChicken" type="CharacterBody2D"]
-input_pickable = true
 script = ExtResource("1_3jp5v")
 
 [node name="ChickenCollider" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_3s882")
+
+[node name="ClickArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_3s882")
 
 [node name="ChickenAnimation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

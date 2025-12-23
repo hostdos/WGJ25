@@ -11,8 +11,7 @@ func _ready() -> void:
 	for child in get_children():
 		if child is ChickenState:
 			child.chicken = owner
-			child.animation = owner.find_child("AnimatedSprite2D")
-			child.collider = owner.find_child("CollisionPolygon2D")
+
 	
 	# Start the first state
 	if initial_state:
