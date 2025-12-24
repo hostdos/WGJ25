@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bpdralphsr6of" path="res://scenes/ui/game_ui.tscn" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://b67pr70obrbj6" path="res://scenes/test_env.tscn" id="1_paxxb"]
 
-[node name="Map" type="Node"]
+[node name="Map" type="Node2D"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_right = 640.0
