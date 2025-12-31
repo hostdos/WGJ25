@@ -23,28 +23,36 @@ var default_volume = 0.0
 
 func play_sound(sound_type: SoundType, randomize: RandomizeStrength = RandomizeStrength.BASIC):
 	volume_db = default_volume
+	var soundinstance = AudioStreamPlayer.new()
+	soundinstance.bus = "Sfx"
 	match sound_type:
 		SoundType.BUTTON_CLICK:
-			stream = load("res://assets/sound_music/sfxpack/sfxpack_8.wav")
+			soundinstance.stream = load("res://assets/sound_music/sfxpack/sfxpack_8.wav")
 		SoundType.CHICKEN_COOKED:
-			stream = load("res://assets/sound_music/sfxpack/sfxpack_44.wav")
+			soundinstance.stream = load("res://assets/sound_music/sfxpack/sfxpack_44.wav")
+			soundinstance.volume_db -= 4.0
 		SoundType.CHICKEN_SPAWN:
-			volume_db -= 10.0
-			stream = load("res://assets/sound_music/sfxpack/sfxpack_63.wav")
+			soundinstance.volume_db -= 10.0
+			soundinstance.stream = load("res://assets/sound_music/sfxpack/sfxpack_63.wav")
 		SoundType.CHICKEN_PANIC:
-			volume_db -= 8.0
-			stream = load("res://assets/sound_music/sfxpack/sfxpack_52.wav")
+			soundinstance.volume_db -= 8.0
+			soundinstance.stream = load("res://assets/sound_music/sfxpack/sfxpack_52.wav")
 		SoundType.POULET_PICKUP:
-			volume_db -= 4.0
-			stream = load("res://assets/sound_music/sfxpack/sfxpack_61.wav")
+			soundinstance.volume_db -= 4.0
+			soundinstance.stream = load("res://assets/sound_music/sfxpack/sfxpack_61.wav")
 	if stream != null:
 		match randomize:
 			RandomizeStrength.NONE:
-				pitch_scale = 1
+				soundinstance.pitch_scale = 1
 			RandomizeStrength.BASIC:
-				pitch_scale = randf_range(min_pitch, max_pitch)
+				soundinstance.pitch_scale = randf_range(min_pitch, max_pitch)
 			RandomizeStrength.HEAVY:
-				pitch_scale = randf_range((min_pitch * min_pitch), (max_pitch * max_pitch))
+				soundinstance.pitch_scale = randf_range((min_pitch * min_pitch), (max_pitch * max_pitch))
 			RandomizeStrength.EXTREME:
-				pitch_scale = randf_range((min_pitch * min_pitch * min_pitch), (max_pitch * max_pitch * max_pitch))
-		play()
+				soundinstance.pitch_scale = randf_range((min_pitch * min_pitch * min_pitch), (max_pitch * max_pitch * max_pitch))
+	get_parent().add_child(soundinstance)
+	soundinstance.play()
+	# Wait for the signal to be emitted, then run the next line of code
+	await soundinstance.finished
+	# After the sound finishes, free the audio player node
+	soundinstance.queue_free()

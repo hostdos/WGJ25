@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://b8ulhkmm1wtyp"]
+[gd_scene load_steps=14 format=4 uid="uid://b8ulhkmm1wtyp"]
 
 [ext_resource type="Script" uid="uid://dbigbnhpq3deq" path="res://scenes/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://crfmmhl0m68in" path="res://scenes/abstracts/abstract_button.tscn" id="2_ekxnf"]
 [ext_resource type="TileSet" uid="uid://bn605yer4cb81" path="res://resources/background_tiles.tres" id="2_wu84c"]
-[ext_resource type="PackedScene" uid="uid://dvxf7d48sorna" path="res://scenes/base_chicken.tscn" id="3_8ln24"]
 [ext_resource type="Texture2D" uid="uid://47215jx62oat" path="res://assets/tbj2_sprites_16x16_V4_transp.png" id="5_8ln24"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa1go"]
@@ -223,45 +222,6 @@ tile_set = ExtResource("2_wu84c")
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer"]
 tile_map_data = PackedByteArray("AAAUAAUAAAAGAA4AAAAXAAYAAAAGAA4AAAAcAAoAAAAGAA4AAAAWABAAAAAGAA4AAAALAA0AAAAGAA4AAAAQAA8AAAAGAA4AAAAJAAIAAAAGAA4AAAAEABEAAAAGAA4AAAAjABIAAAAGAA4AAAAlAAwAAAAGAA4AAAA=")
 tile_set = ExtResource("2_wu84c")
-
-[node name="BaseChicken" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(458, 228)
-
-[node name="BaseChicken2" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(532, 136)
-
-[node name="BaseChicken3" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(373, 288)
-
-[node name="BaseChicken12" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(245, 284)
-
-[node name="BaseChicken13" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(528, 244)
-
-[node name="BaseChicken4" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(493, 336)
-
-[node name="BaseChicken5" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(244, 73)
-
-[node name="BaseChicken6" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(95, 320)
-
-[node name="BaseChicken7" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(211, 345)
-
-[node name="BaseChicken8" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(443, 88)
-
-[node name="BaseChicken9" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(56, 104)
-
-[node name="BaseChicken10" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(120, 64)
-
-[node name="BaseChicken11" parent="TileMapLayer" instance=ExtResource("3_8ln24")]
-position = Vector2(90, 208)
 
 [node name="King" type="Node2D" parent="TileMapLayer"]
 position = Vector2(143, 113)

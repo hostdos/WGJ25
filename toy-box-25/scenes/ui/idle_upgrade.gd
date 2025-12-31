@@ -5,6 +5,7 @@ extends HBoxContainer
 @export var base_price: int = 10
 @export var base_interval: float = 5.0
 @export var base_interval_upgrade_strength: float = 1.0
+@export var show_level: bool = true
 
 signal on_upgraded
 signal on_progress_bar_full
@@ -42,7 +43,8 @@ func _on_idle_upgrade_level_changed():
 		if %Timer.is_stopped():
 			%Timer.start()
 	_update_poulets_needed()
-	%LevelLabel.text = str(idle_upgrade_level)
+	if show_level:
+		%LevelLabel.text = str(idle_upgrade_level)
 
 func _on_timer_timeout():
 	on_progress_bar_full.emit()

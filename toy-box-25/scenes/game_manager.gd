@@ -4,6 +4,7 @@ signal amount_chickens_changed(new_amount_chickens: int)
 signal amount_poulet_changed(new_amount_poulet: int)
 signal amount_mice_changed(new_amount_mice: int)
 signal amount_robot_changed(new_amount_robot: int)
+signal amount_poulet_cooked(new_amount_cooked: int)
 
 var amount_poulet: int = 0:
 	set(new_amount_poulet):
@@ -28,5 +29,11 @@ var amount_robot: int = 0:
 		var amount_gained = new_amount_robot - amount_robot
 		amount_robot = new_amount_robot
 		amount_robot_changed.emit(amount_gained)
+
+var amount_cooked: int = 0:
+	set(new_amount_cooked):
+		var amount_cooked = new_amount_cooked - amount_cooked
+		amount_cooked = new_amount_cooked
+		amount_poulet_cooked.emit(amount_cooked)
 
 @onready var global_timer: Timer = %GlobalClock

@@ -1,9 +1,15 @@
 extends Node2D
 
 var move_speed: float = 70.0
+var has_clicked: bool = false
+var closest_chicken: Chicken
 
 func _process(delta):
-	var closest_chicken: Chicken = get_closest_uncooked_chicken()
+	if closest_chicken == null or has_clicked == true:
+		closest_chicken = get_closest_uncooked_chicken()
+		if closest_chicken != null:
+			has_clicked = false
+			closest_chicken.add_to_group("clicking")
 	var target_position: Vector2
 	
 	if closest_chicken == null:
@@ -17,6 +23,7 @@ func _process(delta):
 	
 		if global_position.distance_to(closest_chicken.global_position) <= 2.0:
 			closest_chicken.cook_him()
+			has_clicked = true
 	
 	var direction: Vector2 = (target_position - global_position).normalized()
 	global_position += direction * move_speed * delta
@@ -25,7 +32,7 @@ func get_closest_uncooked_chicken() -> Chicken:
 	var start_position = position
 
 	var closest_chicken: Chicken = null
-	var closest_range: int = INF
+	var closest_range: int = 9999999 #don't use inf
 
 	var chickens = get_tree().get_nodes_in_group("chicken")
 	for chicken in chickens:
@@ -35,11 +42,13 @@ func get_closest_uncooked_chicken() -> Chicken:
 		if chicken.get_chicken_state() is CoockedState:
 			continue
 		
+		if chicken.is_in_group("clicking"):
+			continue
+		
 		var distance = start_position.distance_to(chicken.global_position)
 		if distance < closest_range:
 			closest_range = distance
 			closest_chicken = chicken
-
 	if closest_chicken:
 		return closest_chicken
 	else:

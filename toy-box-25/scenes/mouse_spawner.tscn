@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://78swikchfjmf"]
+
+[ext_resource type="Script" uid="uid://utmu4i7d8ksy" path="res://scenes/mouse_spawner.gd" id="1_5ipi4"]
+
+[node name="MouseSpawner" type="Node2D"]
+script = ExtResource("1_5ipi4")
+
+[node name="Marker2D" type="Marker2D" parent="."]

@@ -49,7 +49,6 @@ func spawn_chicken(amount: int = 1):
 			%SpawnTimer.wait_time = pow(wait_time_decreaser, spawn_queue)
 		else:
 			%SpawnTimer.wait_time = wait_time
-	print(%SpawnTimer.wait_time)
 	
 func get_random_position():
 	#Random XY inside area2d

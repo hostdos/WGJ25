@@ -6,7 +6,7 @@ func enter():
 	%ChickenAnimation.play("Cooked") # Or "idle" if you have it
 	SfxMusicPlayer.play_sound(SfxMusicPlayer.SoundType.CHICKEN_COOKED, SfxMusicPlayer.RandomizeStrength.EXTREME)
 	%ChickenAnimationPlayer.play("RESET")
-	#%ChickenAnimationPlayer.play("Cooked")
+	%ChickenAnimationPlayer.play("Cooked")
 	%ChickenAnimation.frame = 1 # Stand on specific frame
 	
 

@@ -31,7 +31,7 @@ func get_closest_cooked_chicken() -> Chicken:
 	var start_position = position
 
 	var closest_chicken: Chicken = null
-	var closest_range: int = INF
+	var closest_range: int = 9999999 # don't use inf
 
 	var chickens = get_tree().get_nodes_in_group("chicken")
 	for chicken in chickens:

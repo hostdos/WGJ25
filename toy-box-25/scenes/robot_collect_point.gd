@@ -17,4 +17,4 @@ func _send_robot(amount: int):
 		var robot_scene: Node2D = robot.instantiate()
 		robot_scene.CollectionPoint = %CollectPoint.global_position
 		robot_scene.position = %CollectPoint.global_position
-		get_tree().current_scene.add_child(robot_scene)
+		get_parent().add_child(robot_scene)

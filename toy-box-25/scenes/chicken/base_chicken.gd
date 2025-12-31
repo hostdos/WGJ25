@@ -29,6 +29,7 @@ func cook_him():
 	if %StateMachine.current_state == %Cooked:
 		GameManager.amount_poulet += 1
 		SfxMusicPlayer.play_sound(SfxMusicPlayer.SoundType.POULET_PICKUP)
+		GameManager.amount_cooked += 1
 		self.queue_free()
 	if %StateMachine.current_state != %Cooked:
 		%StateMachine.change_state("Cooked")
